@@ -8,7 +8,6 @@ addons:
             - graphviz
             - libgfortran3  # for casatools
             - libxkbcommon-x11-0  # for glue
-            - xvfb # for test_visualization
 
 env:
     global:

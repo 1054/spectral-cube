@@ -455,6 +455,11 @@ class Projection(LowerDimensionalObject, SpatialCoordMixinClass,
             self._quicklook_mpl(filename=filename)
 
     def _quicklook_mpl(self, filename=None):
+        import os
+        import matplotlib
+        if os.environ.get('DISPLAY','') == '':
+            print('No display found. Using non-interactive Agg backend.')
+            matplotlib.use('Agg')
         from matplotlib import pyplot
         self.figure = pyplot.gcf()
         self.image = pyplot.imshow(self.value)
